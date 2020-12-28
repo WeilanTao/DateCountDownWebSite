@@ -1,5 +1,5 @@
 <template>
-    <p>
+    <div>
         NotFound
-    </p>
+    </div>
 </template>

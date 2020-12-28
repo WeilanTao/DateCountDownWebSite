@@ -1,5 +1,5 @@
 <template>
-    <p>
+    <div>
         DateList
-    </p>
+    </div>
 </template>

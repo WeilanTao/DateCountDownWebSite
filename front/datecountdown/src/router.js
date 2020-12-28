@@ -1,25 +1,32 @@
-import { createRouter, createHistory } from 'vue-router';
+import Vue from 'vue';
+import Router from 'vue-router';
 
-import UserAuth from '.components/UserAuth.vue';
-import DateList from '.components/DateList.vue';
-import date from '.components/Date.vue';
-import NotFound from '.components/NotFound.vue';
+import UserAuth from '@/pages/UserAuth';
+import DateList from '@/pages/DateList';
+import NotFound from '@/pages/NotFound';
+// import DateCount from '@/pages/DateCount';
 
-const router=createRouter({
-    history: createHistory(),
+
+Vue.use(Router)
+
+const router = new Router({
+    // mode:'history',
+    // base:process.env.BASE_URL,
     routes:[
-        {path:'/', redirect:'/userauth'},
-        {path:'/userauth', component:UserAuth},
-        {path:'/datelist/:date', component:DateList,
-        children:[
-                {
-                    path:'date', component:date
-                }
-            ]
-        },
-        {path:'/:notFound(.*)', component:NotFound},
-
-    ],
-});
+        {
+            path:'/userauth',
+            name:'userauth',
+            component:UserAuth
+        },{
+            path:'/datelist',
+            name:'datelist',
+            component:DateList,
+        },{
+            path:'/notfound',
+            name:'notfound',
+            component:NotFound
+        }
+    ]
+})
 
 export default router;
