@@ -47,22 +47,29 @@ export default {
 
 body{
         /* background:black; */
-
+    display: table;
+    width:100%;
     background:linear-gradient(rgb(126, 126, 226),rgb(47, 59, 114));
-    /* justify-content:center; */
+    background-size:100%;
+    justify-content:center;
     position: relative;
 }
 h1{
- font-size:80px;
- color:white;
-}
+    font-size:80px;
+    margin-top: 10%;
+    margin-bottom: -40%;
+    text-align: center;
+    border:6px solid rgba(0,0,0,0) ;
+     white-space:nowrap;
 
+    /* margin: auto auto 10% auto; */
+}
 table{
-    /* height:30% ; */
-    /* width:350px; */
-    margin:70%,50%,30%,50%;
+    height:30% ;
+    width:500px;
+    margin:50% auto -10% auto;
     position: relative;
-    border:1px solid#000;
+    /* border:1px solid#000; */
 }
 td.label{
     width:20%; 
@@ -107,4 +114,14 @@ input:focus{
 
 }
 
+@media only screen and (max-width: 900px){
+h1{
+    font-size:40px;
+}
+
+table{
+    width: 300px;
+}
+
+}
 </style>
