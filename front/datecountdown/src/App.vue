@@ -20,10 +20,13 @@ export default {
 </script>
 
 <style >
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@font-face {
+  font-family:'AbrilFatface' ;
+  src: url('./assets/Abril_Fatface/AbrilFatface-Regular.ttf');
+}
 
 html,input,button{
-      font-family: 'Fredericka the Great', cursive;
+      font-family: 'AbrilFatface';
 }
 
 body{
