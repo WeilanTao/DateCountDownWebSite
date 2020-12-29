@@ -14,7 +14,7 @@ const router = new Router({
     // base:process.env.BASE_URL,
     routes:[
         {
-            path:'/userauth',
+            path:'/',
             name:'userauth',
             component:UserAuth
         },{
