@@ -1,6 +1,6 @@
 <template>
 <body>
-        <h1>Date Count Down</h1>
+        <h1>DATES COUNT DOWN</h1>
 
         <table>
             <tr>
@@ -40,30 +40,53 @@ export default {
 
 <style scoped>
 
+@font-face {
+    font-family: 'neon';
+    src: url('../assets/neon_planet_display/NeonPlanetDisplay.ttf');
+}
+
 *{
     margin:0;
     padding:0;
 }
 
 body{
-        /* background:black; */
+        background:black;
     display: table;
     width:100%;
-    background:linear-gradient(rgb(126, 126, 226),rgb(47, 59, 114));
+    /* background:linear-gradient(rgb(126, 126, 226),rgb(47, 59, 114)); */
     background-size:100%;
     justify-content:center;
     position: relative;
 }
 h1{
-    font-size:80px;
+    display: block;
+    line-height: 100px;
+    font-family: 'neon';
+    font-size:70px;
     margin-top: 10%;
     margin-bottom: -40%;
     text-align: center;
     border:6px solid rgba(0,0,0,0) ;
-     white-space:nowrap;
-
-    /* margin: auto auto 10% auto; */
+    white-space:nowrap;
+    
+    /* Neon effect */
+    color:  rgb(225, 236, 250);
+    -webkit-animation: neoneffect 10s ease-in-out   infinite alternate;
+    -moz-animation: neoneffect 1s ease-in-out  infinite alternate;
+    animation: neoneffect 1s ease-in-out  infinite alternate;
 }
+
+@-webkit-keyframes neoneffect {
+    from {
+    text-shadow: 0 0 3px  rgb(207, 226, 250), 0 0 5px  rgb(207, 226, 250), 0 0 10px #f55cb5, 0 0 15px #f55cb5, 0 0 20px #e60073,0 0 21px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 3px  rgb(207, 226, 250), 0 0 5px  rgb(207, 226, 250), 0 0 10px #f55cb5, 0 0 15px #f55cb5, 0 0 30px #e60073, 0 0 40px #e60073, 5px 5px 5px rgb(15, 169, 241),-5px -5px 5px rgb(15, 169, 241);
+}
+}
+
 table{
     height:30% ;
     width:500px;
