@@ -51,10 +51,10 @@ export default {
 }
 
 body{
-        background:black;
+    background:black;
+        /* background:linear-gradient(rgb(126, 126, 226),rgb(47, 59, 114)); */
     display: table;
     width:100%;
-    /* background:linear-gradient(rgb(126, 126, 226),rgb(47, 59, 114)); */
     background-size:100%;
     justify-content:center;
     position: relative;
@@ -84,7 +84,7 @@ h1{
   
   to {
     text-shadow: 0 0 3px  rgb(207, 226, 250), 0 0 5px  rgb(207, 226, 250), 0 0 10px #f55cb5, 0 0 15px #f55cb5, 0 0 30px #e60073, 0 0 40px #e60073, 4px 4px 4px rgba(15, 169, 241,0.8),-4px -4px 4px rgba(15, 169, 241, 0.8),-2px 2px 2px rgba(226, 241, 15,0.7),2px -2px 2px rgba(226, 241, 15,0.7);
-}
+  }
 }
 
 table{
@@ -92,7 +92,6 @@ table{
     width:500px;
     margin:50% auto -10% auto;
     position: relative;
-    /* border:1px solid#000; */
 }
 td.label{
     width:20%; 
