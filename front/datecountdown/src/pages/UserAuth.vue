@@ -23,8 +23,8 @@
                 <td >
                 </td>
                 <td class="buttons">
-                      <button>Login</button>
-                    <button >Signup</button>
+                      <a href="https://www.youtube.com/" class="button">Login</a>
+                      <a href="#" class="button">Signup</a>
                 </td>
             </tr>
         </table>
@@ -52,7 +52,7 @@ export default {
 
 body{
     background:black;
-        /* background:linear-gradient(rgb(126, 126, 226),rgb(47, 59, 114)); */
+    /* background:linear-gradient(rgb(126, 126, 226),rgb(47, 59, 114)); */
     display: table;
     width:100%;
     background-size:100%;
@@ -64,12 +64,12 @@ h1{
     line-height: 100px;
     font-family: 'neon';
     font-size:70px;
-    margin-top: 10%;
+    margin-top: 8%;
     margin-bottom: -40%;
     text-align: center;
     border:6px solid rgba(0,0,0,0) ;
     white-space:nowrap;
-    
+
     /* Neon effect */
     color:  rgb(225, 236, 250);
     -webkit-animation: neoneffect 10s ease-in-out   infinite alternate;
@@ -90,40 +90,50 @@ h1{
 table{
     height:30% ;
     width:500px;
-    margin:50% auto -10% auto;
+    margin:45% auto -10% auto;
     position: relative;
+    /* border:6px solid rgba(0,0,0,1) ; */
+
 }
 td.label{
+    border:6px;
     width:20%; 
-    border:6px ;
+    border:6px solid rgba(0,0,0,0) ;
 }
 td.input{
+    border:6px;
     width:80%;
     border:6px solid rgba(0,0,0,0) ;
 }
 td.buttons{
-    border:6px solid rgba(0,0,0,0) ;
+    border:6px;
     display:flex;
-    justify-content:space-evenly;
-    
-}
-button{
-border-radius: 10px;
-border-color:yellow;
-}
+    justify-content:space-evenly;;
+    /* border:6px solid rgba(0,0,0,1) ; */
 
-label, button{
-    color:rgb(185, 243, 245);
+}
+.button{
+color:  rgb(225, 236, 250);
+display: block;
+width:20%;
+line-height: 170%;
+font-size:90%;
+text-align: center;
+border: 2px solid;
+border-image: linear-gradient(45deg, rgba(47, 90, 168, 1), rgba(102, 101, 94, 0.5), rgba(20, 173, 140, 1)) 1 ; 
+/* boder-image-slice:1  --repeat the corner once */
+
 }
 
 label{
     float:right;
+    color:rgb(185, 243, 245);
 }
 
 input {
     display: block;
-    width:90%;
-    border-radius: 8px;
+    width:80%;
+    border-radius: 3px;
     border: 1px solid rgb(9, 99, 233);
     padding: 0.15rem;
     
@@ -143,6 +153,8 @@ h1{
 table{
     width: 300px;
 }
-
+.button{
+font-size:70%;
+}
 }
 </style>
