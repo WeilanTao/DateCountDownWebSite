@@ -20,6 +20,10 @@ export default {
 </script>
 
 <style >
+*{
+  text-decoration: none;
+}
+
 @font-face {
   font-family:'AbrilFatface' ;
   src: url('./assets/Abril_Fatface/AbrilFatface-Regular.ttf');
