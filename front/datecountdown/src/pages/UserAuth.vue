@@ -23,7 +23,7 @@
                 <td >
                 </td>
                 <td class="buttons">
-                      <a href="https://www.youtube.com/" class="button">Login</a>
+                      <a href="https://www.youtube.com/" class="button" target="_blank">Login</a>
                       <a href="#" class="button">Signup</a>
                 </td>
             </tr>
@@ -43,11 +43,6 @@ export default {
 @font-face {
     font-family: 'neon';
     src: url('../assets/neon_planet_display/NeonPlanetDisplay.ttf');
-}
-
-*{
-    margin:0;
-    padding:0;
 }
 
 body{
@@ -108,7 +103,7 @@ td.input{
 td.buttons{
     border:6px;
     display:flex;
-    justify-content:space-evenly;;
+    justify-content:space-evenly;
     /* border:6px solid rgba(0,0,0,1) ; */
 
 }
@@ -119,9 +114,10 @@ width:20%;
 line-height: 170%;
 font-size:90%;
 text-align: center;
-border: 2px solid;
+border: 1.5px solid;
 border-image: linear-gradient(45deg, rgba(47, 90, 168, 1), rgba(102, 101, 94, 0.5), rgba(20, 173, 140, 1)) 1 ; 
 /* boder-image-slice:1  --repeat the corner once */
+
 
 }
 
@@ -130,20 +126,20 @@ label{
     color:rgb(185, 243, 245);
 }
 
-input {
+input{
+    color:rgb(185, 243, 245);
+
     display: block;
     width:80%;
     border-radius: 3px;
     border: 1px solid rgb(9, 99, 233);
     padding: 0.15rem;
+    background: black;
+    /* background-image: none; */
     
 }
 
-input:focus{
-    border-color:yellow;
-    background:linen;
 
-}
 
 @media only screen and (max-width: 900px){
 h1{

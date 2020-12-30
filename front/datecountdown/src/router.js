@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import UserAuth from '@/pages/UserAuth';
 import DateList from '@/pages/DateList';
 import NotFound from '@/pages/NotFound';
+import SignUp from '@/pages/Signup';
 // import DateCount from '@/pages/DateCount';
 
 
@@ -17,7 +18,13 @@ const router = new Router({
             path:'/',
             name:'userauth',
             component:UserAuth
-        },{
+        },
+        {
+            path:'/signup',
+            name:'signup',
+            component:SignUp
+        },
+        {
             path:'/datelist',
             name:'datelist',
             component:DateList,
