@@ -16,9 +16,8 @@
                         <input type="email" name="confirmemail" placeholder="ConfirmEmail" >
                     </div>
                 </div>
-                <div class="row">
-                     
-                     <a href="#" class="button" >Create Account!</a>
+                <div class="row lower" >
+                     <a href="https://www.youtube.com/"  class="button"> Create Account</a>
                 </div>
             
             </form>
@@ -46,11 +45,15 @@ export default {
 
 body{
     background:black;
-    display: table;
     width:100%;
     background-size:100%;
-    position: relative;
+    position: absolute;
+    display: grid;
+    z-index: 1;
+    justify-content:center;
+    place-items: center;
 }
+
 .wrapper{
     width:600px;
     margin:0 auto;
@@ -63,6 +66,9 @@ body{
     padding: 10px;
 }
 
+/* .row{
+    height:100px;
+} */
 .left input{
     float:left;
 }
@@ -80,11 +86,11 @@ body{
 
 h1{
     display: block;
-    line-height: 100px;
+    line-height: 60px;
     font-family: 'neonsignin';
     font-size:40px;
     /* margin-top: 8%; */
-    /* margin-bottom: -40%; */
+    margin-bottom: -26%;
     text-align: center;
     border:6px solid rgba(0,0,0,0) ;
     white-space:nowrap;
@@ -95,29 +101,73 @@ h1{
 
 }
 
+
+
 input{
     display: block;
     color:rgb(185, 243, 245);
     border-radius: 3px;
     border: 1px solid rgb(9, 99, 233);
     background: black;
-    margin: 10% 5%;
+    margin: 5% 5%;
 }
 
-.button{
+.button {
 margin: 0 auto;
 margin-top: 5%;
 white-space:nowrap;
-color:  rgb(225, 236, 250);
+color:  white;
 display: block;
-width:30%;
+width:20%;
 line-height: 200%;
 font-size:80%;
 text-align: center;
-border: 1.5px solid;
-border-image: linear-gradient(170deg, rgba(47, 90, 168, 1), rgba(102, 101, 94, 0.5), rgba(20, 173, 140, 1)) 1 ; 
+/* with out the position: relative; the psedo element will be positioned accouding to this emelemt's parent element */
+position: relative;
+/* border: 1.5px solid black; */
+background:rgb(22, 22, 22);;
+place-items: center;
+border-radius: 50px;
+left: 0; 
+  right: 0; 
+ margin-left: auto; 
+  margin-right: auto; 
+  width: 100px; 
+
+}
+
+.button::before{
+    position: absolute;
+    content:"";
+    border-radius: 50px;
+    width:103%;
+    height:103%;
+    background-color:transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -51%);
+    z-index: -1;
+}
+.button::after{
+    position: absolute;
+    content:"";
+    border-radius: 50px;
+    width:103%;
+    height:103%;
+    background-color:transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -51%);
+    z-index: -2;
+}
+
+.button:hover:before{
+    background: linear-gradient(170deg, rgba(47, 90, 168, 1), rgba(102, 101, 94, 0.5), rgba(20, 173, 140, 1)) ;
+}
+.button:hover:after{
+    background: rgba(64, 224, 208,0.7); 
+    filter: blur(5px);
 }
 
 
-
-</style>
+</style> 

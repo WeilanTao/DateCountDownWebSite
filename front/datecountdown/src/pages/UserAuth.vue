@@ -1,11 +1,10 @@
 <template>
 <body>
-        <h1>DATES COUNT DOWN</h1>
-
+        <a href="#" class="h1">DATES COUNT DOWN</a>
         <table>
             <tr>
                 <td class="label">
-                    <label for="email">Account/Eail:</label>
+                    <label for="email">Account/Email:</label>
                 </td>
                 <td class="input">
                     <input type="email" id="email" placeholder="Please enter your email...">
@@ -23,8 +22,13 @@
                 <td >
                 </td>
                 <td class="buttons">
-                      <a href="https://www.youtube.com/" class="button" target="_blank">Login</a>
-                      <a href="#" class="button">Signup</a>
+                    <div class="button" id="login">
+                        <!-- button -->
+                      <a href="https://www.youtube.com/"  target="_blank">Login</a>
+                    </div>
+                    <div class="button">
+                        <a href="#" id="signup" >Signup</a>
+                    </div>
                 </td>
             </tr>
         </table>
@@ -48,19 +52,20 @@ export default {
 body{
     background:black;
     /* background:linear-gradient(rgb(126, 126, 226),rgb(47, 59, 114)); */
-    display: table;
+    display: grid;
     width:100%;
     background-size:100%;
     justify-content:center;
     position: relative;
+    place-items: center;
 }
-h1{
+.h1{
     display: block;
-    line-height: 100px;
+    line-height: 50px;
     font-family: 'neon';
-    font-size:70px;
-    margin-top: 8%;
-    margin-bottom: -40%;
+    font-size:50px;
+    /* margin-top: 8%; */
+    /* margin-bottom: -40%; */
     text-align: center;
     border:6px solid rgba(0,0,0,0) ;
     white-space:nowrap;
@@ -85,10 +90,8 @@ h1{
 table{
     height:30% ;
     width:500px;
-    margin:45% auto -10% auto;
+    margin-top:-15%;
     position: relative;
-    /* border:6px solid rgba(0,0,0,1) ; */
-
 }
 td.label{
     border:6px;
@@ -103,23 +106,81 @@ td.input{
 td.buttons{
     border:6px;
     display:flex;
-    justify-content:space-evenly;
+
+    /* justify-content:space-evenly; */
     /* border:6px solid rgba(0,0,0,1) ; */
 
 }
-.button{
-color:  rgb(225, 236, 250);
+
+.button {
+margin: 0 8%;
+margin-top: 5%;
+white-space:nowrap;
+color:  transparent;
 display: block;
-width:20%;
+width:26%;
 line-height: 170%;
 font-size:90%;
 text-align: center;
-border: 1.5px solid;
-border-image: linear-gradient(45deg, rgba(47, 90, 168, 1), rgba(102, 101, 94, 0.5), rgba(20, 173, 140, 1)) 1 ; 
-/* boder-image-slice:1  --repeat the corner once */
-
-
+/* with out the position: relative; the psedo element will be positioned accouding to this emelemt's parent element */
+position: relative;
+border: 1.5px solid black;
+background: black;
+z-index: 4;
+place-items: center;
+border-radius: 10px;
 }
+#login::after{
+    content:"Login";
+    text-align: center;
+    color: white;
+    position:absolute;
+    border-radius: 10px;
+    width:98%;
+    height:98%;
+    background:rgb(22, 22, 22);
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    z-index: 6;
+}
+#signup::after{
+    content:"Signup";
+    text-align: center;
+    color: white;
+    position:absolute;
+    border-radius: 10px;
+    width:98%;
+    height:98%;
+    background:rgb(22, 22, 22);
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    z-index: 6;
+}
+.button::before{
+    content:"";
+    position:absolute;
+    border-radius: 10px;
+    width:100%;
+    height:100%;
+    background-color:transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.button:hover{
+    background: linear-gradient(170deg, rgba(47, 90, 168, 1), rgba(102, 101, 94, 0.5), rgba(20, 173, 140, 1)) ;
+        
+}
+.button:hover:before{
+    /* background: linear-gradient(170deg, rgba(47, 90, 168, 1), rgba(102, 101, 94, 0.5), rgba(20, 173, 140, 1)) ; */
+    background: rgba(64, 224, 208,0.7);
+    filter: blur(5px);
+}
+
 
 label{
     float:right;
@@ -142,12 +203,13 @@ input{
 
 
 @media only screen and (max-width: 900px){
-h1{
-    font-size:40px;
+.h1{
+    font-size:30px;
 }
 
 table{
     width: 300px;
+    margin-top: -40%;
 }
 .button{
 font-size:70%;
