@@ -5,7 +5,7 @@ import UserAuth from '@/pages/UserAuth';
 import DateList from '@/pages/DateList';
 import NotFound from '@/pages/NotFound';
 import SignUp from '@/pages/Signup';
-// import DateCount from '@/pages/DateCount';
+import DateCount from '@/pages/DateCount';
 
 
 Vue.use(Router)
@@ -28,7 +28,13 @@ const router = new Router({
             path:'/datelist',
             name:'datelist',
             component:DateList,
-        },{
+        },
+        {
+            path:'/datecount',
+            name:'datecount',
+            component:DateCount,
+        },
+        {
             path:'/notfound',
             name:'notfound',
             component:NotFound

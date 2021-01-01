@@ -22,13 +22,9 @@
                 <td >
                 </td>
                 <td class="buttons">
-                    <div class="button" id="login">
-                        <!-- button -->
-                      <a href="https://www.youtube.com/"  target="_blank">Login</a>
-                    </div>
-                    <div class="button">
-                        <a href="#" id="signup" >Signup</a>
-                    </div>
+                      <a href="https://www.youtube.com/"   class="button" target="_blank">Login</a>
+                      <a href="#" id="signup"  class="button" >Register</a>
+
                 </td>
             </tr>
         </table>
@@ -56,7 +52,8 @@ body{
     width:100%;
     background-size:100%;
     justify-content:center;
-    position: relative;
+    position: absolute;
+    z-index: 1;
     place-items: center;
 }
 .h1{
@@ -90,7 +87,7 @@ body{
 table{
     height:30% ;
     width:500px;
-    margin-top:-15%;
+    margin-top:-30%;
     position: relative;
 }
 td.label{
@@ -106,81 +103,75 @@ td.input{
 td.buttons{
     border:6px;
     display:flex;
-
-    /* justify-content:space-evenly; */
     /* border:6px solid rgba(0,0,0,1) ; */
 
 }
 
-.button {
-margin: 0 8%;
-margin-top: 5%;
-white-space:nowrap;
-color:  transparent;
-display: block;
-width:26%;
-line-height: 170%;
-font-size:90%;
-text-align: center;
-/* with out the position: relative; the psedo element will be positioned accouding to this emelemt's parent element */
-position: relative;
-border: 1.5px solid black;
-background: black;
-z-index: 4;
-place-items: center;
-border-radius: 10px;
-}
-#login::after{
-    content:"Login";
+    .button {
+    margin: 0 8%;
+    margin-top: 5%;
+    white-space:nowrap;
+    color:  white;
+    display: block;
+    width:20%;
+    line-height: 170%;
+    font-size:90%;
     text-align: center;
-    color: white;
-    position:absolute;
-    border-radius: 10px;
-    width:98%;
-    height:98%;
-    background:rgb(22, 22, 22);
-    top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-    z-index: 6;
-}
-#signup::after{
-    content:"Signup";
-    text-align: center;
-    color: white;
-    position:absolute;
-    border-radius: 10px;
-    width:98%;
-    height:98%;
-    background:rgb(22, 22, 22);
-    top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-    z-index: 6;
-}
+    position: relative;
+    background:rgb(22, 22, 22);;
+    place-items: center;
+    border-radius: 50px;
+    left: -30px; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+
+    }
+
 .button::before{
+    position: absolute;
     content:"";
-    position:absolute;
-    border-radius: 10px;
-    width:100%;
-    height:100%;
+    border-radius: 50px;
+    width:105%;
+    height:108%;
     background-color:transparent;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+    transform: translate(-50%, -49%);
+    z-index: -1;
+}
+.button::after{
+    position: absolute;
+    content:"";
+    border-radius: 50px;
+    width:108%;
+    height:108%;
+    background-color:transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -49%);
+    z-index: -2;
 }
 
-.button:hover{
-    background: linear-gradient(170deg, rgba(47, 90, 168, 1), rgba(102, 101, 94, 0.5), rgba(20, 173, 140, 1)) ;
-        
-}
-.button:hover:before{
+.button:before{
+        background: linear-gradient(170deg, rgb(228, 110, 110), rgb(201, 201, 65), purple) ;
+
     /* background: linear-gradient(170deg, rgba(47, 90, 168, 1), rgba(102, 101, 94, 0.5), rgba(20, 173, 140, 1)) ; */
-    background: rgba(64, 224, 208,0.7);
+    animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+  }
+}
+.button:after{
+    background: rgba(64, 224, 208,0.7); 
     filter: blur(5px);
 }
-
 
 label{
     float:right;
@@ -212,6 +203,7 @@ table{
     margin-top: -40%;
 }
 .button{
+width:30%;
 font-size:70%;
 }
 }
