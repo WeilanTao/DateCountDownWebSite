@@ -22,9 +22,8 @@
                 <td >
                 </td>
                 <td class="buttons">
-                      <a href="https://www.youtube.com/"   class="button" target="_blank">Login</a>
-                      <a href="#" id="signup"  class="button" >Register</a>
-
+                    <router-link to="/datelist"  class="button"> Login</router-link>
+                    <router-link to="/signup" class="button">Register</router-link>
                 </td>
             </tr>
         </table>
