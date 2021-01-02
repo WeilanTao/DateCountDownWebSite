@@ -1,6 +1,7 @@
 <template>
 <div>
-    <p> Date </p>
+ Date Count
+ 
 </div>
 </template>
 

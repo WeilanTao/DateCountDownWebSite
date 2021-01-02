@@ -21,40 +21,18 @@
                         <input type="text" placeholder="Month">
                         <input type="text" placeholder="Date">
                         <div class="row4">
-                            <div class="button">Clear</div>
-                            <div class="button">Yep!</div>
+                            <router-link to="/datelist/newdate" class="button">Clear</router-link>
+
+                           <!--TODO: Create the dynamic router for the yep button,  based on the date created by the users -->
+                            <router-link to="/datecount" class="button">Yep!</router-link>
                         </div>
                     </form>
+                    <router-view></router-view>
                 </div>
                 <div class="column ">
                     <ul>
-                        <li>
-                            <a href="#">Emily's Birthday 12-26</a>
-                        </li>
-                        <li>
-                            <a href="#">Daniel's Birthday 01-14</a>
-                        </li>
-                        <li>
-                            <a href="#">New Year Birthday 01-01</a>
-                        </li>
-                        <li>
-                            <a href="#">Emily's Birthday 12-26</a>
-                        </li>
-                        <li>
-                            <a href="#">Daniel's Birthday 01-14</a>
-                        </li>
-                        <li>
-                            <a href="#">New Year Birthday 01-01</a>
-                        </li>
-                        <li>
-                            <a href="#">Emily's Birthday 12-26</a>
-                        </li>
-                        <li>
-                            <a href="#">Daniel's Birthday 01-14</a>
-                        </li>
-                        <li>
-                            <a href="#">New Year Birthday 01-01</a>
-                        </li>
+                        <li v-for="data in datalist" :key="data" @click="handleChangePage(data)" >{{data}}</li>
+                       
                     </ul>
 
                 </div>
@@ -65,6 +43,18 @@
 
 <script>
 export default {
+    data(){
+        return {
+            datalist:["Emily's Birthday 10-26","Daniel's Birthday 01-14","New Year Birthday 01-01"]
+
+        }
+    },
+    methods:{
+        handleChangePage(id){
+            // this.$router.push(`/datecount`)
+            this.$router.push(`/datelist/${id}/datecount`)
+        }
+    }
     
 }
 </script>
@@ -121,16 +111,20 @@ input{
 
 ul{
     list-style-type: circle;
-           color:teal;
+           color:rgb(92, 206, 206);
            list-style-position: inside;
+           font-size:20px;
+           line-height: 30px;
+           margin: px 0; 
+           list-style-type:none;
     /* list-style-image: square inside url('../assets/diamond.png'); */
 }
-li{
-     margin: 5px 0; 
-}
- a{
-       color:teal;
-}
+
+/* 
+.myactive{
+    color:red;
+} */
+
 
 
 
