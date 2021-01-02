@@ -13,5 +13,5 @@ public class User {
     private String lastName;
     @NonNull
     private String email;
-    
+
 }
