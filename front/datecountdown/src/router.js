@@ -12,7 +12,7 @@ import NewDate from  '@/components/NewDate';
 Vue.use(Router)
 
 const router = new Router({
-    // mode:'history',
+    mode:'history',
     // base:process.env.BASE_URL,
     routes:[
         {
@@ -30,12 +30,10 @@ const router = new Router({
         },
         {
             path:'/datelist',
-            name:'datelist',
             component:DateList,
             children:[
                 {
                 path:'datecount',
-                name:'datecount',
                 component:DateCount,
                 },
               
@@ -43,14 +41,12 @@ const router = new Router({
         },
         {
             path:'/datelist',
-            name:'datelist',
             component:DateList,
         },    
 
         // the pop out create/edit panel
         {
             path:'/datelist',
-            name:'datelist',
             component:DateList,
             children:[
                 {
