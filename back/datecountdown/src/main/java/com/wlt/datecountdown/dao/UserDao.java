@@ -1,4 +1,4 @@
 package com.wlt.datecountdown.dao;
 
-public class UserDao {
+public interface UserDao {
 }

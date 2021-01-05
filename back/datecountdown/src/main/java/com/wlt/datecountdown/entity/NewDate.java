@@ -3,8 +3,10 @@ package com.wlt.datecountdown.entity;
 import lombok.Data;
 import lombok.NonNull;
 
+import java.util.Date;
+
 @Data
-public class Date {
+public class NewDate {
 
     @NonNull
     private Integer dateId;
@@ -15,7 +17,8 @@ public class Date {
     @NonNull
     private Date createDate;
     @NonNull
-    private Date currentDate;
-
+    private Date nowDate;
+    @NonNull
+    private Integer delFlag;
 
 }

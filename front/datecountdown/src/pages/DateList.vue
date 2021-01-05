@@ -52,7 +52,8 @@ export default {
     methods:{
         handleChangePage(id){
             // this.$router.push(`/datecount`)
-            this.$router.push(`/datelist/${id}/datecount`)
+            // this.$router.push(`/datelist/${id}/datecount`)
+            this.$router.push({name:"datecount", params:{dateid:id}})
         }
     }
     
