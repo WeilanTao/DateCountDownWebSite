@@ -2,22 +2,24 @@
     <body >
         <h1>Write Your Personal Details</h1>
         <div class= "wrapper">
-            <form >
+            <form @submit.prevent="handleSubmit">
                 <div class="row">
 
                     <div class="column left" >
-                        <input type="text" name="firstname" placeholder="FirstName" >
-                        <input type="password" name="password" placeholder="Password" >
-                        <input type="password" name="confirmpassword" placeholder="Confirm Password">
+                        <input type="text" name="firstname" v-model="firstname" placeholder="FirstName" >
+                        <input type="password" name="password"  v-model="password" placeholder="Password" >
+                        <input type="password" name="confirmpassword"  v-model="confirmpassword" placeholder="Confirm Password">
                     </div>
                     <div class="column right" >
-                        <input type="text" name="lastname" placeholder="LastName" >
-                        <input type="email" name="email" placeholder="Email" >
-                        <input type="email" name="confirmemail" placeholder="ConfirmEmail" >
+                        <input type="text" name="lastname"  v-model="lastname" placeholder="LastName" >
+                        <input type="email" name="email"  v-model="email" placeholder="Email" >
+                        <input type="email" name="confirmemail"  v-model="confirmemail" placeholder="ConfirmEmail" >
                     </div>
                 </div>
                 <div class="row lower" >
-                    <router-link to="/datelist" class="button"> Create Account</router-link>
+                    <!-- <router-link to="/datelist"  type="submit" class="button"> Create Account</router-link> -->
+                    <button   > Create Account</button>
+
                      <!-- <a href="https://www.youtube.com/"  class="button"> Create Account</a> -->
                 </div>
             
@@ -27,8 +29,38 @@
 </template>
 
 <script>
+import axios from  'axios';
+
 export default {
     name:'SignUp',
+    data(){
+        return{
+            firstname:'',
+            password:'',
+            confirmpassword:'',
+            lastname:'',
+            email:'',
+            confirmemail:''
+
+        }
+    },
+    methods:{
+        async handleSubmit(){ 
+            
+
+            const response =await axios.post('register',
+                {
+                first_name:this.firstname,
+                last_name:this.lastname,
+                pass_word:this.password,
+                pass_word_confirm:this.confirmpassword,
+                email:this.email
+            });
+
+            console.log(response);
+            
+        }
+    }
 }
 </script>
 
@@ -113,7 +145,9 @@ input{
     margin: 5% 5%;
 }
 
-.button {
+button {
+border: none;
+outline: none;
 margin: 0 auto;
 margin-top: 5%;
 white-space:nowrap;
@@ -137,7 +171,7 @@ left: 0;
 
 }
 
-.button::before{
+button::before{
     position: absolute;
     content:"";
     border-radius: 50px;
@@ -149,7 +183,7 @@ left: 0;
     transform: translate(-50%, -51%);
     z-index: -1;
 }
-.button::after{
+button::after{
     position: absolute;
     content:"";
     border-radius: 50px;
@@ -162,10 +196,10 @@ left: 0;
     z-index: -2;
 }
 
-.button:hover:before{
+button:hover:before{
     background: linear-gradient(170deg, rgba(47, 90, 168, 1), rgba(102, 101, 94, 0.5), rgba(20, 173, 140, 1)) ;
 }
-.button:hover:after{
+button:hover:after{
     background: rgba(64, 224, 208,0.7); 
     filter: blur(5px);
 }
