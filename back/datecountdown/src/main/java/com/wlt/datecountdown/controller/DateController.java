@@ -3,10 +3,7 @@ package com.wlt.datecountdown.controller;
 import com.wlt.datecountdown.entity.NewDate;
 import com.wlt.datecountdown.service.DateService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +16,7 @@ public class DateController {
     @Autowired
     private DateService dateService;
 
+    @CrossOrigin
     @GetMapping(value="/datelist")
     public List<NewDate> getDateListByAccount(){
         return dateService.getDateListByAccount();

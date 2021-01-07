@@ -31,7 +31,7 @@
                 </div>
                 <div class="column ">
                     <ul>
-                        <li v-for="data in datalist" :key="data" @click="handleChangePage(data)" >{{data}}</li>
+                        <li v-for="data in datalist" :key="data" @click="handleChangePage(data)" >{{dateList()}}</li>
                        
                     </ul>
 
@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import axios from  'axios';
+
 export default {
     data(){
         return {
@@ -50,11 +52,21 @@ export default {
         }
     },
     methods:{
+        async dateList(){
+            await axios.get("http://localhost:8889/date/datelist",{
+                params:{},
+                headers:{}
+            }).then(res=>console.log(res));
+        },
         handleChangePage(id){
             // this.$router.push(`/datecount`)
             // this.$router.push(`/datelist/${id}/datecount`)
             this.$router.push({name:"datecount", params:{dateid:id}})
-        }
+        },
+        // dateList(){
+        //     return this.datalist[0];
+        // }
+         
     }
     
 }
