@@ -31,7 +31,8 @@
                 </div>
                 <div class="column ">
                     <ul>
-                        <li v-for="data in datalist" :key="data" @click="handleChangePage(data)" >{{dateList()}}</li>
+                        <li v-for="data in datalist" :key="data" @click="handleChangePage(data)" >{{data}}</li>
+                        <!-- <li  @click="handleChangePage(data)"  >{{}}</li> -->
                        
                     </ul>
 
@@ -47,17 +48,60 @@ import axios from  'axios';
 export default {
     data(){
         return {
-            datalist:["Emily's Birthday 10-26","Daniel's Birthday 01-14","New Year Birthday 01-01"]
+            // datalist:["Emily's Birthday 10-26","Daniel's Birthday 01-14","New Year Birthday 01-01"]
+            datalist:[]
 
         }
     },
-    methods:{
-        async dateList(){
-            await axios.get("http://localhost:8889/date/datelist",{
+    created(){
+         
+            axios.get("http://localhost:8889/date/datelist",{
                 params:{},
                 headers:{}
-            }).then(res=>console.log(res));
-        },
+            }).then(
+                res=>{
+                    let arr=[];
+                    Object.keys(res.data).forEach(function(key){
+
+                        console.log(key,res.data[key]);
+                        arr.push(res.data[key].dateName+res.data[key].createDate);
+                        // this.datalist.push(res.data[key].dateName);
+
+                    });
+                    // console.log("arr arr"+arr);
+                    
+                    this.datalist=arr;
+
+                    // console.log("array array"+this.datalist)
+            });
+            console.log("array array"+this.arr)
+        
+
+    },
+    methods:{
+        // async dateList(){
+        //     await axios.get("http://localhost:8889/date/datelist",{
+        //         params:{},
+        //         headers:{}
+        //     }).then(
+        //         res=>{
+        //             let arr=[];
+        //             Object.keys(res.data).forEach(function(key){
+
+        //                 console.log(key,res.data[key]);
+        //                 arr.push(res.data[key].dateName+res.data[key].createDate);
+        //                 // this.datalist.push(res.data[key].dateName);
+
+        //             });
+        //             // console.log("arr arr"+arr);
+                    
+        //             this.datalist=arr;
+
+        //             // console.log("array array"+this.datalist)
+        //     });
+        //     console.log("array array"+this.datalist)
+        // },
+       
         handleChangePage(id){
             // this.$router.push(`/datecount`)
             // this.$router.push(`/datelist/${id}/datecount`)
@@ -139,7 +183,10 @@ ul{
 } */
 
 
+li{
+        white-space:nowrap;
 
+}
 
 .button {
     margin: 0 10%;
