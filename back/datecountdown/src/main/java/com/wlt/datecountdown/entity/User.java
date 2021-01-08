@@ -13,5 +13,10 @@ public class User {
     private String lastName;
     @NonNull
     private String email;
-    
+    @NonNull
+    private String password;
+    @NonNull
+    private Integer delFlag;
+
+
 }
