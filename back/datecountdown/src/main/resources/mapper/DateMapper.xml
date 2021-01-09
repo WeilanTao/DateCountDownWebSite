@@ -4,7 +4,7 @@
 
     <select id="getDateListByAccount" resultType="com.wlt.datecountdown.entity.NewDate">
         SELECT
-        <include refid="fixedDateColumns"></include>
+        <include refid="dateColumns"></include>
         FROM dates d
 --         WHERE 1=1
         <where>
@@ -35,7 +35,7 @@
 
     <!--<delete id=""></delete>-->
 
-    <sql id="fixedDateColumns">
+    <sql id="dateColumns">
       d.date_id,
       d.date_name,
       d.account,
