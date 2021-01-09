@@ -1,10 +1,10 @@
 package com.wlt.datecountdown.configuration.components;
 
-import com.wlt.datecountdown.entity.NewDate;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -12,12 +12,13 @@ import java.util.Map;
 import java.util.function.Function;
 
 /**
- * Generate Token, Validate Token, Refresh Token, Get Token
+ * Generate Token, Validate Token, Get Token
  *
  */
+@Component
 public class JwtTokenUtil {
 
-    private static final String SECRET_KEY="dcd";
+    private static final String SECRET_KEY="dcdwebsite";
 
 
     /**
@@ -53,6 +54,19 @@ public class JwtTokenUtil {
     public Boolean isExpir(String token){
         Date current=new Date();
         return extractClaim(token, Claims::getExpiration).before(current);
+    }
+
+    /**
+     * Validate token
+     *
+     * @param token
+     * @param userDetails
+     * @return
+     */
+    public Boolean validateToken(String token, UserDetails userDetails){
+        String username = extractUserName(token);
+        return (username.equals(userDetails.getUsername())&&!isExpir(token));
+
     }
 
 }
