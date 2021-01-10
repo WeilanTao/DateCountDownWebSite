@@ -1,11 +1,12 @@
 package com.wlt.datecountdown.entity;
 import lombok.Data;
 import lombok.NonNull;
+import lombok.Setter;
 
 @Data
 public class MyUserEntity {
 
-    @NonNull
+    @Setter
     private Integer userId;
     @NonNull
     private String userName;
