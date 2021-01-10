@@ -10,6 +10,6 @@ public interface UserDao {
 
     Integer register(MyUserEntity myUserEntity);
 
-    MyUserEntity getUserByEmail(String email);
+    String getUserByEmail(String email);
 
 }
