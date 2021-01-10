@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wlt.datecountdown.dao.UserDao">
+
+    <insert id="register" parameterType="com.wlt.datecountdown.entity.MyUserEntity">
+        INSERT INTO myuser(
+        user_id,
+        user_name,
+        email,
+        password,
+        del_flag
+        )values (
+        #{userId},
+        #{userName},
+        #{email},
+        #{password},
+        #{delFlag}
+        )
+    </insert>
+
+    <select id="getUserByEmail" resultType="com.wlt.datecountdown.entity.MyUserEntity">
+        SELECT
+        <include refid="userColumns"></include>
+        from myuser mu
+        where mu.email=#{email};
+    </select>
+
+    <!--<update id=""></update>-->
+
+    <!--<delete id=""></delete>-->
+
+    <sql id="userColumns">
+      mu.user_id,
+      mu.user_name,
+      mu.email,
+      mu.password,
+      mu.del_flag
+
+    </sql>
+
+</mapper>
+

@@ -3,14 +3,12 @@ import lombok.Data;
 import lombok.NonNull;
 
 @Data
-public class User {
+public class MyUserEntity {
 
     @NonNull
     private Integer userId;
     @NonNull
-    private String firstName;
-    @NonNull
-    private String lastName;
+    private String userName;
     @NonNull
     private String email;
     @NonNull
